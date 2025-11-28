@@ -94,7 +94,7 @@ console.log(result);
 
 ### Session / Info
 Gets the information associated with a session token.
-```script
+```javascript
 var result = await CodeAuth.SessionInfo("<session_token>")
 switch (result.error)
 {
@@ -111,7 +111,7 @@ console.log(result)
 
 ### Session / Refresh
 Create a new session token using existing session token.
-```csharp
+```javascript
 var result = await CodeAuth.SessionRefresh("<session_token>")
 switch (result.error)
 {
@@ -129,7 +129,7 @@ console.log(result)
 
 ### Session / Invalidate
 Invalidate a session token. By doing so, the session token can no longer be used for any api call.
-```csharp
+```javascript
 var result = await CodeAuth.SessionInvalidate("<session_token>", "<invalidate_type>")
 switch (result.error)
 {
