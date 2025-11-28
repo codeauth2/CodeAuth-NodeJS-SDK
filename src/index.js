@@ -229,11 +229,7 @@ class CodeAuth {
         if (this.#UseCache && this.#CacheExpiration > Date.now())
         {
             var cache = this.#CacheSession.get(session_token);
-            if (cache) 
-            {
-                console.log("used cache");
-                return cache;
-            }
+            if (cache) return cache;
         }
 
         // call request
