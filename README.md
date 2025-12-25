@@ -77,7 +77,7 @@ console.log(result);
 ### Signin / Social Verify
 This is the next step after the user signs in with their social account. This request checks the authorization code given by the social media company in order to create a session token.
 ```javascript
-var result = await CodeAuth.SignInSocialVerify("<social type>", "<authorization code>")
+var result = await CodeAuth.SignInSocialVerify("<social type>", "<code>")
 switch (result.error)
 {
 	case "bad_json": break;
@@ -85,7 +85,7 @@ switch (result.error)
 	case "bad_ip_address": break;
 	case "rate_limit_reached": break;
 	case "bad_social_type": break;
-	case "bad_authorization_code": break;
+	case "bad_code": break;
 	case "internal_error": break;
 	case "connection_error": break; // sdk failed to connect to api server
 }
