@@ -183,10 +183,10 @@ class CodeAuth {
     /**
      * @summary This is the next step after the user signs in with their social account. This request checks the authorization code given by the social media company in order to create a session token.
      * @param {string} social_type - The type of social OAuth2 url you are trying to verify. Possible social types: "google", "microsoft", "apple"
-     * @param {string} authorization_code - The authorization code given by the social. Check the docs for more info.
+     * @param {string} code - The authorization code given by the social. Check the docs for more info.
      * @returns {object} { session_token, email, expiration, refresh_left }
      */
-    static async SignInSocialVerify(social_type, authorization_code) 
+    static async SignInSocialVerify(social_type, code) 
     {
         // make sure CodeAuth SDK has been initialized
         this.#EnsureInitialized();
@@ -200,7 +200,7 @@ class CodeAuth {
             {
                 project_id: this.#ProjectID,
                 social_type: social_type,
-                authorization_code: authorization_code
+                code: code
             }
         );
 
@@ -232,7 +232,7 @@ class CodeAuth {
             if (cache) return cache;
         }
 
-        // call request
+        // call server and get response 
         var result = await this.#CallApiRequest(
             `/session/info`, 
             {
